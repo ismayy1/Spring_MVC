@@ -1,6 +1,8 @@
 package com.tpe.controller;
 
 import com.tpe.domain.Message;
+import com.tpe.repository.DBRepo;
+import com.tpe.repository.Repository;
 import com.tpe.service.MailService;
 import com.tpe.service.MessageService;
 import com.tpe.service.SmsService;
@@ -23,6 +25,7 @@ public class MessageApplication {
         MessageService smsService = new SmsService();
         smsService.sendMessage(message);
 
+        Repository repository = new DBRepo();
 
     }
 }
