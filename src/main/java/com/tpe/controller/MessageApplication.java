@@ -2,6 +2,7 @@ package com.tpe.controller;
 
 import com.tpe.domain.Message;
 import com.tpe.repository.DBRepo;
+import com.tpe.repository.FileRepo;
 import com.tpe.repository.Repository;
 import com.tpe.service.MailService;
 import com.tpe.service.MessageService;
@@ -28,8 +29,15 @@ public class MessageApplication {
 //        Repository repository = new DBRepo();
 //        repository.save(message);
 
-        MailService service = new MailService();
-        service.sendMessage(message);
+//        MailService service = new MailService();
+//        service.sendMessage(message);
+//        service.saveMessage(message);
+
+        //to save to File
+
+        Repository repo = new DBRepo();
+        // dependency Injection
+        WhatsAppService service = new WhatsAppService(repo);
         service.saveMessage(message);
 
     }
