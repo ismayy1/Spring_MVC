@@ -29,13 +29,19 @@ public class MessageApplication {
 //        Repository repository = new DBRepo();
 //        repository.save(message);
 
+        //without injection (DI)
 //        MailService service = new MailService();
 //        service.sendMessage(message);
 //        service.saveMessage(message);
 
+
+        // WITH Dependency Injection (DI)
+        Repository repo = new DBRepo();
+
+        MessageService messageService = new MailService(repo);
+        messageService.saveMessage(message);
         //to save to File
 
-        Repository repo = new DBRepo();
         // dependency Injection
         WhatsAppService service = new WhatsAppService(repo);
         service.saveMessage(message);
