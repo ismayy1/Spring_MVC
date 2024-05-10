@@ -19,14 +19,18 @@ public class MessageApplication {
 //        mailService.sendMessage(message);
 
         // don't send the message above, send the message on whatsapp
-        MessageService whatsAppService = new WhatsAppService();
-        whatsAppService.sendMessage(message);
+//        MessageService whatsAppService = new WhatsAppService();
+//        whatsAppService.sendMessage(message);
+//
+//        MessageService smsService = new SmsService();
+//        smsService.sendMessage(message);
 
-        MessageService smsService = new SmsService();
-        smsService.sendMessage(message);
+//        Repository repository = new DBRepo();
+//        repository.save(message);
 
-        Repository repository = new DBRepo();
-        repository.save(message);
+        MailService service = new MailService();
+        service.sendMessage(message);
+        service.saveMessage(message);
 
     }
 }

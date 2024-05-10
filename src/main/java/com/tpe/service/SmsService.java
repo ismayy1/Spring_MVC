@@ -7,4 +7,9 @@ public class SmsService implements MessageService {
     public void sendMessage(Message message) {
         System.out.println("SMS Message service");
     }
+
+    @Override
+    public void saveMessage(Message message) {
+
+    }
 }
