@@ -26,6 +26,7 @@ public class MessageApplication {
         smsService.sendMessage(message);
 
         Repository repository = new DBRepo();
+        repository.save(message);
 
     }
 }
