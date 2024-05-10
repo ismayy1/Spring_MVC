@@ -2,6 +2,8 @@ package com.tpe.controller;
 
 import com.tpe.domain.Message;
 import com.tpe.service.MailService;
+import com.tpe.service.MessageService;
+import com.tpe.service.SmsService;
 import com.tpe.service.WhatsAppService;
 
 public class MessageApplication {
@@ -15,8 +17,12 @@ public class MessageApplication {
 //        mailService.sendMessage(message);
 
         // don't send the message above, send the message on whatsapp
-        WhatsAppService whatsAppService = new WhatsAppService();
+        MessageService whatsAppService = new WhatsAppService();
         whatsAppService.sendMessage(message);
+
+        MessageService smsService = new SmsService();
+        smsService.sendMessage(message);
+
 
     }
 }
