@@ -38,8 +38,8 @@ public class MessageApplication {
         // WITH Dependency Injection (DI)
         Repository repo = new DBRepo();
 
-        MessageService messageService = new MailService(repo);
-        messageService.saveMessage(message);
+//        MessageService messageService = new MailService(repo);
+//        messageService.saveMessage(message);
         //to save to File
 
         // dependency Injection

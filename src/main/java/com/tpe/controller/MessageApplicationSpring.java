@@ -16,9 +16,13 @@ public class MessageApplicationSpring {
         // and stores it in context makes it ready to be used. And when beans are requested it will inject dependencies and gives...
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(AppConfiguration.class);
 
-        //send message via SmsSerervice
+        //send message via SmsService
         // MessageService service = new SmsService(); // we do not create, it is outsourced
-        MessageService service = context.getBean(SmsService.class);
-        service.sendMessage(message);
+//        MessageService service = context.getBean(SmsService.class);   // we didn't use new keyword to create an instance
+//        service.sendMessage(message);
+
+        MessageService service2 = context.getBean("mailService", MessageService.class);
+        service2.sendMessage(message);
+
     }
 }
