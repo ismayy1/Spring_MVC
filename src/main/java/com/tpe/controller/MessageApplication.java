@@ -43,8 +43,8 @@ public class MessageApplication {
         //to save to File
 
         // dependency Injection
-        WhatsAppService service = new WhatsAppService(repo);
-        service.saveMessage(message);
+//        WhatsAppService service = new WhatsAppService(repo);
+//        service.saveMessage(message);
 
     }
 }

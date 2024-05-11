@@ -4,6 +4,7 @@ import com.tpe.AppConfiguration;
 import com.tpe.domain.Message;
 import com.tpe.service.MessageService;
 import com.tpe.service.SmsService;
+import com.tpe.service.WhatsAppService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class MessageApplicationSpring {
@@ -26,6 +27,9 @@ public class MessageApplicationSpring {
 
         // if there are more than one child of interface, then we need to use bean name
         // default bean name is the class name with lowerCase, but we can customize the class name
+
+        MessageService service3 = context.getBean("whatsAppService", WhatsAppService.class);
+        service3.sendMessage(message);
 
     }
 }
