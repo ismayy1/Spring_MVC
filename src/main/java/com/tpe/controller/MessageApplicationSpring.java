@@ -29,12 +29,18 @@ public class MessageApplicationSpring {
         // if there are more than one child of interface, then we need to use bean name
         // default bean name is the class name with lowerCase, but we can customize the class name
 
+        // if there are dependencies of
         MessageService service3 = context.getBean("whatsAppService", WhatsAppService.class);
         service3.saveMessage(message);
 
         MessageService service4 = context.getBean("whatsAppService", WhatsAppService.class);
 
-        // if there are dependencies of
+        /*
+            Spring dependency Injection
+                1. we did not use new keyword
+                2. dependency is injected by spring via @Autowired
+                3. we did not create repo
+         */
 
         context.close();
 
