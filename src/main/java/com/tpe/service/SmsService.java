@@ -4,7 +4,7 @@ import com.tpe.domain.Message;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component ("smsService") // instance of this class will be created by spring
+@Component ("sms-Service") // instance of this class will be created by spring
 //@Qualifier
 // we are outsourcing control to spring (Inversion of Control)
 public class SmsService implements MessageService{
