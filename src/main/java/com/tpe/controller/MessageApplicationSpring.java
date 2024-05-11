@@ -2,6 +2,7 @@ package com.tpe.controller;
 
 import com.tpe.AppConfiguration;
 import com.tpe.domain.Message;
+import com.tpe.service.MailService;
 import com.tpe.service.MessageService;
 import com.tpe.service.SmsService;
 import com.tpe.service.WhatsAppService;
@@ -22,14 +23,23 @@ public class MessageApplicationSpring {
 //        MessageService service = context.getBean(SmsService.class);   // we didn't use new keyword to create an instance
 //        service.sendMessage(message);
 
-        MessageService service2 = context.getBean("sms-Service", MessageService.class);
+        MessageService service2 = context.getBean("smsService", MessageService.class);
         service2.sendMessage(message);
 
         // if there are more than one child of interface, then we need to use bean name
         // default bean name is the class name with lowerCase, but we can customize the class name
 
         MessageService service3 = context.getBean("whatsAppService", WhatsAppService.class);
-        service3.sendMessage(message);
+        service3.saveMessage(message);
+
+        MessageService service4 = context.getBean("whatsAppService", WhatsAppService.class);
+
+        // if there are dependencies of
+
+        context.close();
+
+//        System.out.println("Context is closed");
+//        context.getBean("mailService", MailService.class);    // once the context is closed, you can't use the context another bean anymore
 
     }
 }
