@@ -5,6 +5,7 @@ import com.tpe.repository.FileRepo;
 import com.tpe.repository.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -14,6 +15,13 @@ import javax.annotation.PreDestroy;
 @Component ("whatsAppService")
 //@Scope  // by default it is singleton
 public class WhatsAppService implements MessageService {
+
+
+    @Value("${email}")
+    private String email;
+
+    @Value("${phone}")
+    private String phone;
 
     //========= field injection ==========
     // it's easy to use and the type of teh injection will be set while run time via reflection api
@@ -56,6 +64,12 @@ public class WhatsAppService implements MessageService {
     public void saveMessage(Message message) {
 //        Repository repo = new FileRepo();
         repo.save(message);
+    }
+
+
+    public void printContactsInfo () {
+        System.out.println("Your email: " + this.email);
+        System.out.println("Your phone Number: " + this.phone);
     }
 
 }

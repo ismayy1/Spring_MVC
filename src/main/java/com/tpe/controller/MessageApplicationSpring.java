@@ -26,17 +26,17 @@ public class MessageApplicationSpring {
 //        MessageService service2 = context.getBean("smsService", MessageService.class);
 //        service2.sendMessage(message);
 
-        MessageService service3 = context.getBean(MailService.class);
-        MessageService service4 = context.getBean(MailService.class);
+//        MessageService service3 = context.getBean(MailService.class);
+//        MessageService service4 = context.getBean(MailService.class);
 
         // if there are more than one child of interface, then we need to use bean name
         // default bean name is the class name with lowerCase, but we can customize the class name
 
         // if there are dependencies of
-        MessageService service5 = context.getBean("whatsAppService", WhatsAppService.class);
-        service3.saveMessage(message);
-
-        MessageService service6 = context.getBean("whatsAppService", WhatsAppService.class);
+//        MessageService service5 = context.getBean("whatsAppService", WhatsAppService.class);
+//        service3.saveMessage(message);
+//
+//        MessageService service6 = context.getBean("whatsAppService", WhatsAppService.class);
 
         /*
             Spring dependency Injection
@@ -44,6 +44,11 @@ public class MessageApplicationSpring {
                 2. dependency is injected by spring via @Autowired
                 3. we did not create repo
          */
+
+        MailService service8 = context.getBean(MailService.class);
+        service8.printContactsInfo();
+
+
 
         context.close();
 
