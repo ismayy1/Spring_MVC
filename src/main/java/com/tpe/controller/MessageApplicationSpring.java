@@ -23,8 +23,8 @@ public class MessageApplicationSpring {
 //        MessageService service = context.getBean(SmsService.class);   // we didn't use new keyword to create an instance
 //        service.sendMessage(message);
 
-        MessageService service2 = context.getBean("smsService", MessageService.class);
-        service2.sendMessage(message);
+//        MessageService service2 = context.getBean("smsService", MessageService.class);
+//        service2.sendMessage(message);
 
         // if there are more than one child of interface, then we need to use bean name
         // default bean name is the class name with lowerCase, but we can customize the class name
@@ -33,7 +33,7 @@ public class MessageApplicationSpring {
         MessageService service3 = context.getBean("whatsAppService", WhatsAppService.class);
         service3.saveMessage(message);
 
-        MessageService service4 = context.getBean("whatsAppService", WhatsAppService.class);
+//        MessageService service4 = context.getBean("whatsAppService", WhatsAppService.class);
 
         /*
             Spring dependency Injection
