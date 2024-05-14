@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
+import java.util.Properties;
 
 @Component ("mailService")
 //@Qualifier
@@ -24,6 +25,10 @@ public class MailService implements MessageService {
 
     @Value("${phone}")
     private String phone;
+
+    @Autowired
+    private Properties properties;
+
 
     @PostConstruct
     public void postConstractor () {
@@ -52,6 +57,11 @@ public class MailService implements MessageService {
     public void printContactsInfo () {
         System.out.println("Your email: " + this.email);
         System.out.println("Your phone Number: " + this.phone);
+    }
+
+    public void getContactInfo () {
+        System.out.println("myEmail: " + properties.get("myEmail"));
+        System.out.println("phoneNumber: " + properties.get("phoneNumber"));
     }
 
 }
