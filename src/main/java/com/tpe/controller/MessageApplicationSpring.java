@@ -47,6 +47,8 @@ public class MessageApplicationSpring {
 
         MailService service8 = context.getBean(MailService.class);
         service8.printContactsInfo();
+        System.out.println("================= using properties =================");
+        service8.getContactInfo();
 
 
 
