@@ -8,6 +8,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component ("whatsAppService")
 //@Scope  // by default it is singleton
 public class WhatsAppService implements MessageService {
@@ -26,6 +29,16 @@ public class WhatsAppService implements MessageService {
 //    public WhatsAppService(@Qualifier ("dbRepo") Repository repo) {
 //        this.repo = repo;
 //    }
+
+    @PostConstruct
+    public void postConstractor () {
+        System.out.println("==================== WhatsApp Service Bean has been created ====================");
+    }
+
+    @PreDestroy
+    public void preDestroy () {
+        System.out.println("==================== WhatsApp Service Bean has been destroyed ====================");
+    }
 
     //========= setter injection ==========
     private Repository repo;

@@ -9,16 +9,21 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component ("mailService")
 //@Qualifier
 //@Scope (value = "singleton")  // by default it is singleton
-@Scope (value = "prototype")    // everytime the bean is requested, teh new instance will be created
+@Scope (value = "prototype")    // everytime the bean is requested, the new instance will be created
 public class MailService implements MessageService {
 
+    @PostConstruct
     public void postConstractor () {
         System.out.println("==================== Mail Service Bean has been created ====================");
     }
 
+    @PreDestroy
     public void preDestroy () {
         System.out.println("==================== Mail Service Bean has been destroyed ====================");
     }
